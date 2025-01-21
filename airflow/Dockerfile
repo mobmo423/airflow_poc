@@ -16,7 +16,7 @@ USER airflow
 ENV AIRFLOW_HOME=/opt/airflow
 ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
 ENV AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
-ENV AIRFLOW__CORE__LOAD_EXAMPLES=True  # Enable example DAGs
+ENV AIRFLOW__CORE__LOAD_EXAMPLES=True
 
 # Expose the webserver port
 EXPOSE 8080
