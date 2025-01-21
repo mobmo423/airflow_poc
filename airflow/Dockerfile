@@ -10,7 +10,8 @@ RUN python -m venv /opt/airflow/dbt_env \
     && chown -R airflow: /opt/airflow/dbt_env
 
 # Copy DAGs into the container
-COPY ./airflow/dags /opt/airflow/dags
+COPY ./dags /opt/airflow/dags
+
 
 # Switch back to the airflow user
 USER airflow
