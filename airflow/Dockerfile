@@ -1,9 +1,7 @@
-FROM apache/airflow:2.4.0
+FROM apache/airflow:2.9.0
 
-#RUN pip install --no-cache-dir apache-airflow-providers-slack
-#RUN pip install --no-cache-dir apache-airflow-providers-airbyte
+
 RUN pip install --no-cache-dir apache-airflow-providers-snowflake
-#RUN pip install --no-cache-dir apache-airflow-providers-databricks
 
 # Install dbt-snowflake in a virtual environment to avoid conflict
 USER root
