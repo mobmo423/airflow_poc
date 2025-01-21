@@ -12,6 +12,17 @@ RUN python -m venv /opt/airflow/dbt_env \
 # Switch back to the airflow user
 USER airflow
 
-# Initialize the Airflow database
-RUN airflow db init
+# Set environment variables
+ENV AIRFLOW_HOME=/opt/airflow
+ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
+ENV AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+ENV AIRFLOW__CORE__LOAD_EXAMPLES=True  # Enable example DAGs
+
+# Expose the webserver port
+EXPOSE 8080
+
+# Define entrypoint and default command
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+CMD ["webserver"]
+
 
